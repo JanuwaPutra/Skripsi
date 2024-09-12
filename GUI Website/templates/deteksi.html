@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Citra</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* CSS untuk menyesuaikan ukuran gambar */
+        #uploaded-image {
+            max-width: 100%;
+            max-height: 300px; /* Ubah sesuai kebutuhan */
+            margin-top: 20px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="">Tugas Akhir</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('deteksi') }}">Deteksi Kesegaran Ikan Kembung</a>
+                </li>
+            </ul>
+           
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center mb-4">Upload Citra</h2>
+                <!-- Form untuk mengunggah gambar -->
+                <form action="/predict" method="post" enctype="multipart/form-data">
+                    <div class="custom-file mb-3">
+                        <input type="file" class="custom-file-input" id="customFile" name="file" accept="image/*" required>
+                        <label class="custom-file-label" for="customFile">Pilih file</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Prediksi</button>
+                </form>
+                <!-- Gambar yang diunggah akan ditampilkan di sini -->
+                <div id="image-preview" class="mt-4 text-center">
+                    <img id="uploaded-image" src="#" alt="Uploaded Image" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Footer -->
+      <footer>
+        <div class="container">
+            <p>Januwa Putra Wiastopo &copy; 2024</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript untuk menampilkan gambar yang diunggah -->
+    <script>
+        // Fungsi untuk menampilkan gambar yang diunggah
+        function previewImage(input) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                console.log("Image loaded successfully.");
+                $('#uploaded-image').attr('src', e.target.result).show();
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        // Saat input file diubah, panggil fungsi previewImage
+        $("#customFile").change(function() {
+            console.log("File input changed.");
+            previewImage(this);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Tugas Akhir</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('deteksi') }}">Deteksi Kesegaran Ikan Kembung</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center mb-4">Hasil Prediksi:</h2>
+                <!-- Pesan hasil prediksi -->
+                <div class="alert alert-success" role="alert">
+                    <p class="text-center">{{ prediction }}</p>
+                </div>
+                <!-- Form untuk mengunggah gambar lagi -->
+                <form action="/deteksi" method="get" class="mt-4 text-center">
+                    <button type="submit" class="btn btn-primary">Buka Citra Lainnya</button>
+                </form>
+            </div>
+        </div>
+    </div>
+     <!-- Footer -->
+     <footer>
+        <div class="container">
+            <p>Januwa Putra Wiastopo &copy; 2024</p>
+        </div>
+    </footer>
+</body>
+</html>

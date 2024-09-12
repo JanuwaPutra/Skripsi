@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Tugas Akhir</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('deteksi') }}">Deteksi Kesegaran Ikan Kembung</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Dashboard</h2>
+        <p>Selamat datang di website deteksi kesegaran ikan kembung, solusi inovatif untuk memantau kesegaran ikan kembung secara efisien dan akurat. Kami memanfaatkan teknologi terkini dalam analisis citra digital untuk memastikan kualitas produk perikanan tetap terjaga.</p>
+        <p>Dengan menggunakan Metode K-Nearest Neighbors (KNN) dan fitur-fitur seperti warna RGB-HSV dan tekstur GLCM, aplikasi kami memungkinkan pelaku industri perikanan untuk dengan cepat dan mudah menilai kesegaran ikan kembung. Ini membantu mengurangi pemborosan dan kerugian akibat penurunan kualitas ikan, sambil meningkatkan kepercayaan konsumen terhadap produk yang dihasilkan.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Januwa Putra Wiastopo &copy; 2024</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
